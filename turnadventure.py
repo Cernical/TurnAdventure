@@ -27,19 +27,19 @@ while juego == 1:
                     else:
                         barra1 = "██████"
 
-        if VidaEnemigo == 0:
+        if VidaJugador == 0:
             barra2 = ""
         else:
-            if VidaEnemigo <= 39:
+            if VidaJugador <= 39:
                 barra2 = "██ "
             else:
-                if VidaEnemigo <= 49:
+                if VidaJugador <= 49:
                     barra2 = "███ "
                 else:
-                    if VidaEnemigo <= 76:
+                    if VidaJugador <= 76:
                         barra2 = "████ "
                     else:
-                        if VidaEnemigo <= 89:
+                        if VidaJugador <= 89:
                             barra2 = "█████ "
                         else:
                             barra2 = "██████"
@@ -69,23 +69,23 @@ while juego == 1:
     print("_______________________________________________________________________")
 
     #¿Ha acabado la partida?
-    if VidaEnemigo == 0:
+    if VidaEnemigo <= 0:
         print("¡Ha ganado el jugador!")
         juego = 0
     else:
-        if VidaJugador == 0:
+        if VidaJugador <= 0:
             print("¡Ha ganado tu enemigo!")
             juego = 0
         else:
             #Selección Movimientos Jugador----------------------------------------------
             i = input("Selecciona movimiento (A,B y C): ")
-            if i == "A" or "a":
+            if i == "A" or i == "a":
                 VidaEnemigo = VidaEnemigo - 25
             else:
-                if i == "B" or "b":
+                if i == "B" or i == "b":
                     VidaEnemigo = VidaEnemigo - 17
                 else:
-                    if i == "C" or "c":
+                    if i == "C" or i == "c":
                         VidaEnemigo = VidaEnemigo - 8
                     else:
                         print("No has elegido un ataque correcto")
