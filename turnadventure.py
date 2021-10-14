@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import time
 import subprocess
 clear = lambda: subprocess.call('cls||clear', shell=True)
 
@@ -83,12 +84,21 @@ while juego == 1:
             i = input("Selecciona movimiento (A,B y C): ")
             if i == "A" or i == "a":
                 VidaEnemigo = VidaEnemigo - 25
+                print("")
+                print("Has ocasionado 25 de daño")
+                time.sleep(3)
             else:
                 if i == "B" or i == "b":
                     VidaEnemigo = VidaEnemigo - 17
+                    print("")
+                    print("Has ocasionado 17 de daño")
+                    time.sleep(3)
                 else:
                     if i == "C" or i == "c":
                         VidaEnemigo = VidaEnemigo - 8
+                        print("")
+                        print("Has ocasionado 8 de daño")
+                        time.sleep(3)
                     else:
                         print("No has elegido un ataque correcto")
 
@@ -97,8 +107,17 @@ while juego == 1:
             randomnumero1=(randrange(1,3))          #Rango de suma
             if randomnumero1 == 1:
                 VidaJugador = VidaJugador - 25
+                print("")
+                print("El enemigo ha causado 25 de daño")
+                time.sleep(3)
             else:
                 if randomnumero1 == 2:
                     VidaJugador = VidaJugador - 17
+                    print("")
+                    print("El enemigo ha causado 17 de daño")
+                    time.sleep(3)
                 else:
                     VidaJugador = VidaJugador - 8
+                    print("")
+                    print("El enemigo ha causado 8 de daño")
+                    time.sleep(3)
