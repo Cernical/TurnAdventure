@@ -10,8 +10,9 @@ VidaEnemigo = 100
 while juego == 1:
     clear()
 
-    if VidaEnemigo == 0:
+    if VidaEnemigo <= 0:
         barra1 = ""
+        VidaEnemigo = 0
     else:
         if VidaEnemigo <= 39:
             barra1 = "██ "
@@ -27,8 +28,9 @@ while juego == 1:
                     else:
                         barra1 = "██████"
 
-        if VidaJugador == 0:
+        if VidaJugador <= 0:
             barra2 = ""
+            VidaJugador = 0
         else:
             if VidaJugador <= 39:
                 barra2 = "██ "
