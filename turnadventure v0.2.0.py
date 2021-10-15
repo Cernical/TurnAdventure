@@ -4,27 +4,37 @@
 import multiprocessing
 import time
 import subprocess
+from playsound import playsound
+from pygame.locals import *
+from pygame import mixer
 clear = lambda: subprocess.call('cls||clear', shell=True)
 
 #Dependencias-------------------------------------------------------------------
-try:
-    subprocess.call("./debian.sh")
+"""try:
+    subprocess.call("debian.sh")
 except:
     try:
-        subprocess.call("./arch.sh")
+        subprocess.call("arch.sh")
     except:
-        subprocess.call("./windows.bat")
-
+        subprocess.call("windows.bat")
+"""
 Juego = 1
 
 #Funciones----------------------------------------------------------------------
 def Mod_combate():
 
-    p = multiprocessing.Process(target=playsound, args=("batalla.mp3",))
-    p.start()
+    try:
+        p = multiprocessing.Process(target=playsound, args=("batalla.mp3",))
+        p.start()
+    except:
+        mixer.init()
+        mixer.music.load("C:\\Users\esdom\Desktop\TurnAdventure-testing\intro.wav")
+        mixer.music.play()
 
     VidaJugador = 100
+    VelocidadJugador = 20
     VidaEnemigo = 100
+    VelocidadEnemigo = 20
     Combate = 1
 
     while Combate == 1:
@@ -97,33 +107,47 @@ def Mod_combate():
             print()
             input("Pulsa cualquier tecla para continuar: ")
             Combate = 0
-            p.terminate()
+            try:
+                p.terminate()
+            except:
+                mixer.music.stop()
+
         else:
             if VidaJugador <= 0:
                 print("¡Ha ganado tu enemigo!")
                 print()
                 input("Pulsa cualquier tecla para continuar: ")
                 Combate = 0
-                p.terminate()
+                try:
+                    p.terminate()
+                except:
+                    mixer.music.stop()
+
             else:
                 #Selección Movimientos Jugador----------------------------------------------
                 i = input("Selecciona movimiento (A,B y C): ")
                 if i == "A" or i == "a":
-                    VidaEnemigo = VidaEnemigo - 25
+                    from random import randrange
+                    randomnumero1=(randrange(0,15))
+                    VidaEnemigo = VidaEnemigo - randomnumero1
                     print("")
-                    print("Has ocasionado 25 de daño")
+                    print("Has ocasionado",randomnumero1,"de daño")
                     time.sleep(3)
                 else:
                     if i == "B" or i == "b":
-                        VidaEnemigo = VidaEnemigo - 17
+                        from random import randrange
+                        randomnumero1=(randrange(0,15))
+                        VidaEnemigo = VidaEnemigo - randomnumero1
                         print("")
-                        print("Has ocasionado 17 de daño")
+                        print("Has ocasionado",randomnumero1,"de daño")
                         time.sleep(3)
                     else:
                         if i == "C" or i == "c":
+                            from random import randrange
+                            randomnumero1=(randrange(0,15))
                             VidaEnemigo = VidaEnemigo - 8
                             print("")
-                            print("Has ocasionado 8 de daño")
+                            print("Has ocasionado",randomnumero1,"de daño")
                             time.sleep(3)
                         else:
                             print("")
@@ -151,14 +175,13 @@ def Mod_combate():
 
 
 while Juego == 1:
+
     clear()
-    from playsound import playsound
-    #playsound("/home/kevin/GitHub/intro.mp3",False) #Inicia la música------------------------------------
     p = multiprocessing.Process(target=playsound, args=("intro.mp3",))
     p.start()
     print("_______________________________________________________________________")
     print()
-    print("                  ¡Bienvenido a TurnAdventure! v0.1.0")
+    print("                  ¡Bienvenido a TurnAdventure! v0.2.0")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
