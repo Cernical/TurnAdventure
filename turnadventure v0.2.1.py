@@ -24,11 +24,11 @@ Juego = 1
 def Mod_combate():
 
     try:
-        p = multiprocessing.Process(target=playsound, args=("batalla.mp3",))
+        p = multiprocessing.Process(target=playsound, args=("lance.wav",))
         p.start()
     except:
         mixer.init()
-        mixer.music.load("C:\\Users\esdom\Desktop\TurnAdventure-testing\intro.wav")
+        mixer.music.load("lance.wav")
         mixer.music.play()
 
     VidaJugador = 100
@@ -177,11 +177,17 @@ def Mod_combate():
 while Juego == 1:
 
     clear()
-    p = multiprocessing.Process(target=playsound, args=("intro.mp3",))
-    p.start()
+    try:
+        p = multiprocessing.Process(target=playsound, args=("intro.wav",))
+        p.start()
+    except:
+        mixer.init()
+        mixer.music.load("intro.wav")
+        mixer.music.play()
+
     print("_______________________________________________________________________")
     print()
-    print("                  ¡Bienvenido a TurnAdventure! v0.2.0")
+    print("                  ¡Bienvenido a TurnAdventure! v0.2.1")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
