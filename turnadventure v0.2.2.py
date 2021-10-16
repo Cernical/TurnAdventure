@@ -7,6 +7,7 @@ import subprocess
 from playsound import playsound
 from pygame.locals import *
 from pygame import mixer
+from random import randrange
 clear = lambda: subprocess.call('cls||clear', shell=True)
 
 #Dependencias-------------------------------------------------------------------
@@ -127,7 +128,6 @@ def Mod_combate():
                 #Selección Movimientos Jugador----------------------------------------------
                 i = input("Selecciona movimiento (A,B y C): ")
                 if i == "A" or i == "a":
-                    from random import randrange
                     randomnumero1=(randrange(0,15))
                     VidaEnemigo = VidaEnemigo - randomnumero1
                     print("")
@@ -135,7 +135,6 @@ def Mod_combate():
                     time.sleep(3)
                 else:
                     if i == "B" or i == "b":
-                        from random import randrange
                         randomnumero1=(randrange(0,15))
                         VidaEnemigo = VidaEnemigo - randomnumero1
                         print("")
@@ -143,7 +142,6 @@ def Mod_combate():
                         time.sleep(3)
                     else:
                         if i == "C" or i == "c":
-                            from random import randrange
                             randomnumero1=(randrange(0,15))
                             VidaEnemigo = VidaEnemigo - 8
                             print("")
@@ -154,7 +152,6 @@ def Mod_combate():
                             print("No has elegido un ataque correcto")
 
                 #Selección Movimientos NPC--------------------------------------------------
-                from random import randrange
                 randomnumero1=(randrange(1,3))          #Rango de suma
                 if randomnumero1 == 1:
                     VidaJugador = VidaJugador - 25
@@ -173,7 +170,6 @@ def Mod_combate():
                         print("El enemigo ha causado 8 de daño")
                         time.sleep(3)
 
-
 while Juego == 1:
 
     clear()
@@ -187,7 +183,7 @@ while Juego == 1:
 
     print("_______________________________________________________________________")
     print()
-    print("                  ¡Bienvenido a TurnAdventure! v0.2.1")
+    print("                  ¡Bienvenido a TurnAdventure! v0.2.2")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
