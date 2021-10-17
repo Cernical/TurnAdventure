@@ -1,10 +1,10 @@
 #!/usr/bin/python
 #!/bin/bash
 
-import multiprocessing
+#import multiprocessing
 import time
 import subprocess
-from playsound import playsound
+#from playsound import playsound
 from pygame.locals import *
 from pygame import mixer
 from random import randrange
@@ -24,13 +24,9 @@ Juego = 1
 #Funciones----------------------------------------------------------------------
 def Mod_combate():
 
-    try:
-        p = multiprocessing.Process(target=playsound, args=("lance.wav",))
-        p.start()
-    except:
-        mixer.init()
-        mixer.music.load("lance.wav")
-        mixer.music.play()
+    mixer.init()
+    mixer.music.load("lance.wav")
+    mixer.music.play()
 
     VidaJugador = 100
     VelocidadJugador = 20
@@ -108,10 +104,7 @@ def Mod_combate():
             print()
             input("Pulsa cualquier tecla para continuar: ")
             Combate = 0
-            try:
-                p.terminate()
-            except:
-                mixer.music.stop()
+            mixer.music.stop()
 
         else:
             if VidaJugador <= 0:
@@ -119,10 +112,7 @@ def Mod_combate():
                 print()
                 input("Pulsa cualquier tecla para continuar: ")
                 Combate = 0
-                try:
-                    p.terminate()
-                except:
-                    mixer.music.stop()
+                mixer.music.stop()
 
             else:
                 #Selección Movimientos Jugador----------------------------------------------
@@ -172,18 +162,13 @@ def Mod_combate():
 
 while Juego == 1:
 
-    clear()
-    try:
-        p = multiprocessing.Process(target=playsound, args=("intro.wav",))
-        p.start()
-    except:
-        mixer.init()
-        mixer.music.load("intro.wav")
-        mixer.music.play()
+    mixer.init()
+    mixer.music.load("intro.wav")
+    mixer.music.play()
 
     print("_______________________________________________________________________")
     print()
-    print("                  ¡Bienvenido a TurnAdventure! v0.2.2")
+    print("                  ¡Bienvenido a TurnAdventure! v0.2.3")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
@@ -194,14 +179,14 @@ while Juego == 1:
     print("")
     r = input("Seleccione modo de juego: ")
     if r == "1":
-        p.terminate()
+        mixer.music.stop()
         Mod_combate()
     else:
         if r == "2":
-            p.terminate()
+            mixer.music.stop()
             Juego = 0
         else:
-            p.terminate()
+            mixer.music.stop()
             print("")
             print("No has seleccionado un modo correcto")
             time.sleep(3)
