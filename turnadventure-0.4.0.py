@@ -3,8 +3,13 @@
 
 import time
 import subprocess
-from pygame.locals import *
-from pygame import mixer
+
+try:
+    from pygame.locals import *
+    from pygame import mixer
+except:
+    modo_compatibilidad = 1 #Placeholder del try--------------------------------
+
 from random import randrange
 clear = lambda: subprocess.call('cls||clear', shell=True)
 
@@ -19,16 +24,29 @@ except:
 """
 
 Juego = 1
+modo_compatibilidad = 0
+null = 1 #Placeholder de los if-------------------------------------------------
 
-mixer.init()
-mixer.music.load("./music/intro.mp3")
-mixer.music.play(-1)
+#Comprobación del módulo de pygame----------------------------------------------
+try:
+    mixer.init()
+    mixer.music.load("./music/intro.mp3")
+    mixer.music.play(-1)
+except:
+    modo_compatibilidad = 1
+    clear()
+    print("No se ha encontrado el modulo de pygame, puedes instalarlo usando: pip install pygame")
+    print("Se iniciará el juego sin música...")
+    time.sleep(3)
 
 #Funciones----------------------------------------------------------------------
 def Mod_combate():
 
-    mixer.music.load("./music/lance.mp3")
-    mixer.music.play(-1)
+    if modo_compatibilidad == 0:
+        mixer.music.load("./music/lance.mp3")
+        mixer.music.play(-1)
+    else:
+        null
 
     VidaJugador = 100
     VelocidadJugador = 20
@@ -103,25 +121,37 @@ def Mod_combate():
 
         #¿Ha acabado la partida?
         if VidaEnemigo <= 0:
-            mixer.music.stop()
-            mixer.music.load("./music/victory.mp3")
-            mixer.music.play(-1)
+            if modo_compatibilidad == 0:
+                mixer.music.stop()
+                mixer.music.load("./music/victory.mp3")
+                mixer.music.play(-1)
+            else:
+                null
             print("¡Ha ganado el jugador!")
             print()
             input("Pulsa cualquier tecla para continuar: ")
-            mixer.music.stop()
             Combate = 0
-            mixer.music.load("./music/intro.mp3")
-            mixer.music.play(-1)
+            if modo_compatibilidad == 0:
+                mixer.music.stop()
+                mixer.music.load("./music/intro.mp3")
+                mixer.music.play(-1)
+            else:
+                null
         else:
             if VidaJugador <= 0:
-                mixer.music.stop()
+                if modo_compatibilidad == 0:
+                    mixer.music.stop()
+                else:
+                    null
                 print("¡Ha ganado tu enemigo!")
                 print()
                 input("Pulsa cualquier tecla para continuar: ")
                 Combate = 0
-                mixer.music.load("./music/intro.mp3")
-                mixer.music.play(-1)
+                if modo_compatibilidad == 0:
+                    mixer.music.load("./music/intro.mp3")
+                    mixer.music.play(-1)
+                else:
+                    null
             else:
                 #Selección Movimientos Jugador----------------------------------------------
                 i = input("Selecciona movimiento (A,B y C): ")
@@ -174,7 +204,7 @@ while Juego == 1:
     clear()
     print("_______________________________________________________________________")
     print()
-    print("                  ¡Bienvenido a TurnAdventure! v0.4.0")
+    print("                  ¡Bienvenido a TurnAdventure! v0.5.0")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
@@ -186,12 +216,18 @@ while Juego == 1:
 
     r = input("Seleccione modo de juego: ")
     if r == "1":
-        mixer.music.stop()
-        Mod_combate()
+        if modo_compatibilidad == 0:
+            mixer.music.stop()
+            Mod_combate()
+        else:
+            Mod_combate()
     else:
         if r == "2":
-            mixer.music.stop()
-            Juego = 0
+            if modo_compatibilidad == 0:
+                mixer.music.stop()
+                Juego = 0
+            else:
+                Juego = 0
         else:
             print("")
             print("No has seleccionado un modo correcto")
