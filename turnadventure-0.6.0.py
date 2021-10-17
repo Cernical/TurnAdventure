@@ -325,6 +325,4 @@ while Juego == 1:
             print("")
             print("No has seleccionado un modo correcto")
             time.sleep(3)
-
-#Bugs---------------------------------------------------------------------------
-#línea 140: si NPC y Jugador seleccionan mismo animal, ambos tendrán los mismos stats
+            
