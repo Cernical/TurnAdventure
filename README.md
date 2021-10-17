@@ -3,7 +3,7 @@
 Un juego inspirado en Pokémon basado en combates por turnos completamente en línea de comandos.
 Para jugar será recomendable tener el modulo de pygame instalado en python, en caso contrario usar 'pip install pygame' en la terminal.
 
-#Known Issues
+# Known Issues
 
 Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.dll' a C:\Windows\System32 y C:\Windows\SysWOW64
 
