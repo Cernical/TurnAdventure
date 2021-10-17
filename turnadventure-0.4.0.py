@@ -21,13 +21,13 @@ except:
 Juego = 1
 
 mixer.init()
-mixer.music.load("intro.mp3")
+mixer.music.load("./music/intro.mp3")
 mixer.music.play(-1)
 
 #Funciones----------------------------------------------------------------------
 def Mod_combate():
 
-    mixer.music.load("lance.mp3")
+    mixer.music.load("./music/lance.mp3")
     mixer.music.play(-1)
 
     VidaJugador = 100
@@ -104,14 +104,14 @@ def Mod_combate():
         #¿Ha acabado la partida?
         if VidaEnemigo <= 0:
             mixer.music.stop()
-            mixer.music.load("victory.mp3")
+            mixer.music.load("./music/victory.mp3")
             mixer.music.play(-1)
             print("¡Ha ganado el jugador!")
             print()
             input("Pulsa cualquier tecla para continuar: ")
             mixer.music.stop()
             Combate = 0
-            mixer.music.load("intro.mp3")
+            mixer.music.load("./music/intro.mp3")
             mixer.music.play(-1)
         else:
             if VidaJugador <= 0:
@@ -120,7 +120,7 @@ def Mod_combate():
                 print()
                 input("Pulsa cualquier tecla para continuar: ")
                 Combate = 0
-                mixer.music.load("intro.mp3")
+                mixer.music.load("./music/intro.mp3")
                 mixer.music.play(-1)
             else:
                 #Selección Movimientos Jugador----------------------------------------------
@@ -174,7 +174,7 @@ while Juego == 1:
     clear()
     print("_______________________________________________________________________")
     print()
-    print("                  ¡Bienvenido a TurnAdventure! v0.3.0")
+    print("                  ¡Bienvenido a TurnAdventure! v0.4.0")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
