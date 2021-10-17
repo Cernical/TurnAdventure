@@ -14,14 +14,13 @@ from random import randrange
 clear = lambda: subprocess.call('cls||clear', shell=True)
 
 #Dependencias-------------------------------------------------------------------
-"""try:
-    subprocess.call("debian.sh")
+try:
+    subprocess.call("./requirements/debian.sh")
 except:
     try:
-        subprocess.call("arch.sh")
+        subprocess.call("./requirements/arch.sh")
     except:
-        subprocess.call("windows.bat")
-"""
+        subprocess.call("./requirements/windows.bat")
 
 Juego = 1
 modo_compatibilidad = 0
@@ -204,7 +203,7 @@ while Juego == 1:
     clear()
     print("_______________________________________________________________________")
     print()
-    print("                  ¡Bienvenido a TurnAdventure! v0.5.0")
+    print("                  ¡Bienvenido a TurnAdventure! v0.5.1")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
