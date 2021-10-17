@@ -4,6 +4,19 @@ Un juego inspirado en Pokémon basado en combates por turnos completamente en l�
 
 # Changelog
 
+<h2>v0.3.0</h2>
+
+<b>Features</b>
+
+- Arreglado un error al seleccionar el ataque "C" siempre realizaría el mismo daño independientemente del valor mostrado en pantalla.
+- Se ha añadido un tema de victoria.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.2.3</h2>
 
 <b>Features</b>
