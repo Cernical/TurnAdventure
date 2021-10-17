@@ -1,7 +1,7 @@
 # TurnAdventure
 
 Un juego inspirado en Pokémon basado en combates por turnos completamente en línea de comandos.
-Para jugar será recomendable tener el modulo de pygame instalado en python, en caso contrario usar 'pip install pygame' en la terminal.
+Para jugar será recomendable tener el modulo de pygame instalado en python, se debería instalar automáticamente al ejecutar el archivo principal, en caso contrario usar 'pip install pygame' en la terminal.
 
 # Known Issues
 
