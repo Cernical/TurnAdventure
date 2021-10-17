@@ -4,6 +4,18 @@ Un juego inspirado en Pok√©mon basado en combates por turnos completamente en l√
 
 # Changelog
 
+<h2>v0.2.3</h2>
+
+<b>Features</b>
+
+- Mejorada la compatibilidad con Windows.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.2.2</h2>
 
 <b>Features</b>
