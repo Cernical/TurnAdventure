@@ -9,6 +9,18 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 # Changelog
 
+<h2>v0.5.1</h2>
+
+<b>Features</b>
+
+- Se ha habilitado nuevamente la instalación de dependencias a través del CMD.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.5.0</h2>
 
 <b>Features</b>
