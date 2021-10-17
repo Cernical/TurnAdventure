@@ -9,6 +9,18 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 # Changelog
 
+<h2>v0.5.0</h2>
+
+<b>Features</b>
+
+- Se ha añadido una función de compatibilidad en caso de no tener el módulo de pygame.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.4.0</h2>
 
 <b>Features</b>
@@ -17,7 +29,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 <b>Bugs</b>
 
-- Por encontrar.
+- Ninguno
 
 <hr>
 
