@@ -1,3 +1,3 @@
 #!/bin/bash
 
-pip install pygame
+sudo pacman -S --noconfirm python-pip && pip install pygame

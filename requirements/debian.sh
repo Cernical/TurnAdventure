@@ -1,4 +1,3 @@
 #!/bin/bash
 
-sudo apt-get install python-pip
-pip install playsound
+sudo apt-get -y install python-pip && pip install pygame
