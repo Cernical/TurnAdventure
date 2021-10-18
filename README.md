@@ -11,6 +11,36 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 # Changelog
 
+<h2>v0.8.0</h2>
+
+<b>Features</b>
+
+- Mejoras en la interfaz de batalla.
+- Se ha añadido una posibilidad de realizar ataque crítico.
+- Arreglado el fallo anterior en la pantalla de selección.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
+<h2>v0.7.0</h2>
+
+<b>Features</b>
+
+- Se ha añadido un modo supervivencia.
+- Ahora se gestiona las dependencias y no pregunta cada vez que se inicia en distribuciones de linux (Debian, Arch).
+- Cambios mayores en el sistema de combate.
+- Equilibrios entre personajes.
+- Añadido un apartado de visualización de estadísticas.
+
+<b>Bugs</b>
+
+- En la pantalla de selección de personaje si no se elige una opción planteada por defecto se usará siempre al perro.
+
+<hr>
+
 <h2>v0.6.0</h2>
 
 <b>Features</b>
@@ -21,7 +51,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 <b>Bugs</b>
 
-- Por encontrar.
+- Ninguno encontrado.
 
 <hr>
 
@@ -33,7 +63,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 <b>Bugs</b>
 
-- Por encontrar.
+- Ninguno encontrado.
 
 <hr>
 
@@ -45,7 +75,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 <b>Bugs</b>
 
-- Por encontrar.
+- Ninguno encontrado.
 
 <hr>
 
@@ -57,7 +87,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 <b>Bugs</b>
 
-- Ninguno
+- Ninguno encontrado.
 
 <hr>
 
@@ -70,7 +100,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 <b>Bugs</b>
 
-- Ninguno
+- Ninguno encontrado.
 
 <hr>
 
