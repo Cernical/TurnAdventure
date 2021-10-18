@@ -11,6 +11,20 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 # Changelog
 
+<h2>v0.8.0</h2>
+
+<b>Features</b>
+
+- Mejoras en la interfaz de batalla.
+- Se ha añadido una posibilidad de realizar ataque crítico.
+- Arreglado el fallo anterior en la pantalla de selección.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.7.0</h2>
 
 <b>Features</b>
@@ -23,7 +37,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 <b>Bugs</b>
 
-- Por encontrar.
+- En la pantalla de selección de personaje si no se elige una opción planteada por defecto se usará siempre al perro.
 
 <hr>
 
