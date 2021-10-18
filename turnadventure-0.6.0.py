@@ -29,7 +29,7 @@ null = 1 #Placeholder de los if-------------------------------------------------
 #Comprobación del módulo de pygame----------------------------------------------
 try:
     mixer.init()
-    mixer.music.load("./music/intro.mp3")
+    mixer.music.load("./music/titulo.mp3")
     mixer.music.play(-1)
 except:
     modo_compatibilidad = 1
@@ -39,20 +39,114 @@ except:
     time.sleep(3)
 
 #Funciones----------------------------------------------------------------------
+def perro(posicion):
+
+    nivel_perro = 1
+    randomnumero1=(randrange(50,75))
+    bonus_vida = nivel_perro*5
+    global vida_perro
+    vida_perro = randomnumero1 + bonus_vida
+
+    randomnumero1=(randrange(10,20))
+    bonus_velocidad = nivel_perro*2
+    global velocidad_perro
+    velocidad_perro = randomnumero1 + bonus_velocidad
+
+    if posicion == "enemigo":
+        print("                                                                /^ ^\ ")
+        print("                                                               / 0 0 \ ")
+        print("                                                               V\ Y /V ")
+        print("                                                                / - \ ")
+        print("                                                               /    | ")
+        print("                                                              V__) || ")
+    else:
+        if posicion == "aliado":
+            print("   /^ ^\ ")
+            print("  / 0 0 \ ")
+            print("  V\ Y /V ")
+            print("   / - \ ")
+            print("  /    | ")
+            print(" V__) || ")
+        else:
+            null
+
+def buho(posicion):
+
+    nivel_buho = 1
+    randomnumero1=(randrange(35,50))
+    bonus_vida = nivel_buho*3
+    global vida_buho
+    vida_buho = randomnumero1 + bonus_vida
+
+    randomnumero1=(randrange(30,50))
+    bonus_velocidad = nivel_buho*3
+    global velocidad_buho
+    velocidad_buho = randomnumero1 + bonus_velocidad
+
+    if posicion == "aliado":
+        print("  /\ /\ ")
+        print(" ((ovo)) ")
+        print(" ():::() ")
+        print("   VVV ")
+    else:
+        if posicion == "enemigo":
+            print("                                                                 /\ /\ ")
+            print("                                                                ((ovo)) ")
+            print("                                                                ():::() ")
+            print("                                                                  VVV ")
+        else:
+            null
+
 def Mod_combate():
 
     if modo_compatibilidad == 0:
-        mixer.music.load("./music/lance.mp3")
+        mixer.music.load("./music/oak.mp3")
         mixer.music.play(-1)
     else:
         null
 
-    VidaJugador = 100
-    VelocidadJugador = 20
-    VidaEnemigo = 100
-    VelocidadEnemigo = 20
+    #Selección personajes-------------------------------------------------------
+    clear()
+    print()
+    buho("aliado")
+    print()
+    print("(1)")
+    print()
+    perro("aliado")
+    print()
+    print("(2)")
+    print()
+    respuesta = input("¿Qué personaje quieres seleccionar? (1,2): ")
 
+    #Asignación de parámetros jugador y enemigo---------------------------------
+    if respuesta == "1":
+        buho(0)
+        VidaJugador = vida_buho
+        VelocidadJugador = velocidad_buho
+    else:
+        perro(0)
+        VidaJugador = vida_perro
+        VelocidadJugador = velocidad_perro
+
+    respuesta_enemigo=(randrange(0,3))
+    if respuesta_enemigo == 1:
+        buho(0)
+        VidaEnemigo = vida_buho
+        velocidadEnemigo = velocidad_buho
+    else:
+        perro(0)
+        VidaEnemigo = vida_perro
+        velocidadEnemigo = velocidad_perro
+
+    #Inicio del combate---------------------------------------------------------
     Combate = 1
+
+    if modo_compatibilidad == 0:
+        mixer.music.stop()
+        mixer.music.load("./music/trainer.mp3")
+        mixer.music.play(-1)
+    else:
+        null
 
     while Combate == 1:
 
@@ -96,12 +190,11 @@ def Mod_combate():
         print("_______________________________________________________________________")
         print("")
         print("                                                   ", barra1, VidaEnemigo)
-        print("                                                                /^ ^\ ")
-        print("                                                               / 0 0 \ ")
-        print("                                                               V\ Y /V ")
-        print("                                                                / - \ ")
-        print("                                                               /    | ")
-        print("                                                              V__) || ")
+        #Mostrar personajes-----------------------------------------------------
+        if respuesta_enemigo == 1:
+            buho("enemigo")
+        else:
+            perro("enemigo")
         print("")
         print("")
         print("")
@@ -110,11 +203,12 @@ def Mod_combate():
         print("")
         print("")
         print("")
-        print(" /\ /\ ")
-        print("((ovo)) ")
-        print("():::() ")
-        print("  VVV ")
-        print("       ", barra2, VidaJugador)
+        #Mostrar personajes-----------------------------------------------------
+        if respuesta == "1":
+            buho("aliado")
+        else:
+            perro("aliado")
+        print("          ", barra2, VidaJugador)
         print("_______________________________________________________________________")
         print()
 
@@ -132,7 +226,7 @@ def Mod_combate():
             Combate = 0
             if modo_compatibilidad == 0:
                 mixer.music.stop()
-                mixer.music.load("./music/intro.mp3")
+                mixer.music.load("./music/titulo.mp3")
                 mixer.music.play(-1)
             else:
                 null
@@ -147,7 +241,7 @@ def Mod_combate():
                 input("Pulsa cualquier tecla para continuar: ")
                 Combate = 0
                 if modo_compatibilidad == 0:
-                    mixer.music.load("./music/intro.mp3")
+                    mixer.music.load("./music/titulo.mp3")
                     mixer.music.play(-1)
                 else:
                     null
@@ -203,7 +297,7 @@ while Juego == 1:
     clear()
     print("_______________________________________________________________________")
     print()
-    print("                  ¡Bienvenido a TurnAdventure! v0.5.1")
+    print("                  ¡Bienvenido a TurnAdventure! v0.6.0")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
@@ -231,3 +325,4 @@ while Juego == 1:
             print("")
             print("No has seleccionado un modo correcto")
             time.sleep(3)
+            

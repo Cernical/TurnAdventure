@@ -11,6 +11,20 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 # Changelog
 
+<h2>v0.6.0</h2>
+
+<b>Features</b>
+
+- Se ha añadido nueva música.
+- Se ha añadido la posibilidad de elegir personaje en el modo random.
+- Cambios menores en la interfaz de batalla.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.5.1</h2>
 
 <b>Features</b>
