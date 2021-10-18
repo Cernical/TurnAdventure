@@ -197,37 +197,49 @@ def Mod_combate():
     victorias = 0
 
     while Supervivencia == 1:
-        print()
-        #Selección personajes-------------------------------------------------------
-        clear()
-        print()
-        buho("aliado")
-        print()
-        print("(1)")
-        print()
-        perro("aliado")
-        print()
-        print("(2)")
-        print()
-        respuesta = input("¿Qué personaje quieres seleccionar? (1,2): ")
 
         #Asignación de parámetros jugador y enemigo---------------------------------
-        if respuesta == "1":
-            buho(0)
-            VidaJugador = vida_buho
-            VidaTotalJugador = VidaJugador #Asignación para calculo de barra.v------
-            VelocidadJugador = velocidad_buho
-            AtaqueJugador = ataque_buho
-            DefensaJugador = defensa_buho
-        else:
-            perro(0)
-            VidaJugador = vida_perro
-            VidaTotalJugador = VidaJugador #Asignación para calculo de barra.v------
-            VelocidadJugador = velocidad_perro
-            AtaqueJugador = ataque_perro
-            DefensaJugador = defensa_perro
+        asignacion = 1
 
-        respuesta_enemigo=(randrange(0,3))
+        while asignacion == 1:
+
+            print()
+            #Selección personajes-------------------------------------------------------
+            clear()
+            print()
+            buho("aliado")
+            print()
+            print("(1)")
+            print()
+            perro("aliado")
+            print()
+            print("(2)")
+            print()
+            respuesta = input("¿Qué personaje quieres seleccionar? (1,2): ")
+
+            if respuesta == "1":
+                buho(0)
+                VidaJugador = vida_buho
+                VidaTotalJugador = VidaJugador #Asignación para calculo de barra.v------
+                VelocidadJugador = velocidad_buho
+                AtaqueJugador = ataque_buho
+                DefensaJugador = defensa_buho
+                asignacion = 0
+            else:
+                if respuesta == "2":
+                    perro(0)
+                    VidaJugador = vida_perro
+                    VidaTotalJugador = VidaJugador #Asignación para calculo de barra.v------
+                    VelocidadJugador = velocidad_perro
+                    AtaqueJugador = ataque_perro
+                    DefensaJugador = defensa_perro
+                    asignacion = 0
+                else:
+                    print()
+                    print("No has seleccionado un personaje correcto")
+                    time.sleep(3)
+
+        respuesta_enemigo=(randrange(1,3))
         if respuesta_enemigo == 1:
             buho(0)
             VidaEnemigo = vida_buho
@@ -304,29 +316,34 @@ def Mod_combate():
                                 else:
                                     barra2 = "██████"
 
+            #Campo de batalla---------------------------------------------------
             clear()
             print("_______________________________________________________________________")
             print("")
-            print("                                                   ", barra1, VidaEnemigo)
-            #Mostrar personajes-----------------------------------------------------
+            #Mostrar nombre y barra---------------------------------------------
+            if respuesta_enemigo == 1: print("                                                   ","BUHO",barra1)
+            if respuesta_enemigo != 1: print("                                                ","PERRO",barra1)
+            #Mostrar personajes-------------------------------------------------
             if respuesta_enemigo == 1:
                 buho("enemigo")
             else:
                 perro("enemigo")
+            print("         /\ ")
+            print("                              /\  ")
+            print("                                               /\  ")
             print("")
+            print("                /\  ")
             print("")
-            print("")
-            print("")
-            print("")
-            print("")
-            print("")
+            print("                                  /\                       /\ ")
             print("")
             #Mostrar personajes-----------------------------------------------------
             if respuesta == "1":
                 buho("aliado")
             else:
                 perro("aliado")
-            print("          ", barra2, VidaJugador)
+            #Mostrar nombre y barra---------------------------------------------
+            if respuesta == "1": print("        ","BUHO",barra2,VidaJugador)
+            if respuesta != "1": print("         ","PERRO",barra2,VidaJugador)
             print("_______________________________________________________________________")
             print()
 
@@ -366,7 +383,7 @@ def Mod_combate():
                     else:
                         null
                 else:
-                    i = input("Selecciona movimiento (Ataque (A)): ")
+                    #i = input("Selecciona movimiento (Ataque (A)): ")
 
                     #Cálculo Velocidad----------------------------------------------
                     while calculoVelocidad == 1:
@@ -398,15 +415,16 @@ def Mod_combate():
 
                     #Turnos---------------------------------------------------------
                     if jugadorAtaca >= enemigoAtaca:
-
+                        i = input("Selecciona movimiento (Ataque (A)): ")
                         #Selección Movimientos Jugador------------------------------
                         if i == "A" or i == "a":
                             DañoRealizado = AtaqueJugador - DefensaEnemigo
 
                             #Bonus daño aleatorio-----------------------------------
                             DañoRandom = 0
+                            critico = 0
 
-                            randomnumero2=(randrange(1,3))
+                            randomnumero2=(randrange(1,5))
                             if randomnumero2 == 1:
                                 if DañoRealizado > 10:
                                     DañoRandom = DañoRealizado * 0.1
@@ -421,16 +439,31 @@ def Mod_combate():
                                         DañoRandom = DañoRandom + 2
                                     DañoRealizado = DañoRealizado + DañoRandom
                                 else:
-                                    if DañoRealizado > 10:
-                                        DañoRandom = DañoRealizado * 0.3
+                                    if randomnumero2 == 3:
+                                        if DañoRealizado > 10:
+                                            DañoRandom = DañoRealizado * 0.3
+                                        else:
+                                            DañoRandom = DañoRandom + 3
+                                        DañoRealizado = DañoRealizado + DañoRandom
                                     else:
-                                        DañoRandom = DañoRandom + 3
-                                    DañoRealizado = DañoRealizado + DañoRandom
+                                        if DañoRealizado > 10:
+                                            DañoRandom = DañoRealizado * 2
+                                            critico = 1
+                                        else:
+                                            DañoRandom = DañoRandom + 8
+                                            critico = 1
+                                        DañoRealizado = DañoRealizado + DañoRandom
 
                             DañoRealizado = int(DañoRealizado) #Pueden aparecer FP--
                             VidaEnemigo = VidaEnemigo - DañoRealizado
                             print("")
                             print("Has ocasionado",DañoRealizado,"de daño")
+                            if critico == 1:
+                                print()
+                                print("¡Ataque Crítico!")
+                                print("")
+                            else:
+                                null
                             time.sleep(3)
                             jugadorAtaca = jugadorAtaca - 1
                             enemigoAtaca = enemigoAtaca + 1
@@ -469,8 +502,9 @@ def Mod_combate():
 
                                 #Bonus daño aleatorio-----------------------------------
                                 DañoRandom = 0
+                                critico = 0
 
-                                randomnumero2=(randrange(1,3))
+                                randomnumero2=(randrange(1,5))
                                 if randomnumero2 == 1:
                                     if DañoRealizado > 10:
                                         DañoRandom = DañoRealizado * 0.1
@@ -485,16 +519,29 @@ def Mod_combate():
                                             DañoRandom = DañoRandom + 2
                                         DañoRealizado = DañoRealizado + DañoRandom
                                     else:
-                                        if DañoRealizado > 10:
-                                            DañoRandom = DañoRealizado * 0.3
+                                        if randomnumero2 == 3:
+                                            if DañoRealizado > 10:
+                                                DañoRandom = DañoRealizado * 0.3
+                                            else:
+                                                DañoRandom = DañoRandom + 3
+                                            DañoRealizado = DañoRealizado + DañoRandom
                                         else:
-                                            DañoRandom = DañoRandom + 3
-                                        DañoRealizado = DañoRealizado + DañoRandom
+                                            if DañoRealizado > 10:
+                                                DañoRandom = DañoRealizado * 2
+                                                critico = 1
+                                            else:
+                                                DañoRandom = DañoRandom + 8
+                                                critico = 1
+                                            DañoRealizado = DañoRealizado + DañoRandom
 
                                 DañoRealizado = int(DañoRealizado) #Pueden aparecer FP--
                                 VidaJugador = VidaJugador - DañoRealizado
-                                print("")
                                 print("El enemigo ha causado",DañoRealizado,"de daño")
+                                if critico == 1:
+                                    print()
+                                    print("¡Ataque Crítico!")
+                                else:
+                                    null
                                 time.sleep(3)
                                 enemigoAtaca = enemigoAtaca - 1
                                 jugadorAtaca = jugadorAtaca + 1
@@ -543,7 +590,7 @@ while Juego == 1:
     clear()
     print("_______________________________________________________________________")
     print()
-    print("                  ¡Bienvenido a TurnAdventure! v0.7.0")
+    print("                  ¡Bienvenido a TurnAdventure! v0.8.0")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
