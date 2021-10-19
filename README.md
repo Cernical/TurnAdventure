@@ -4,6 +4,9 @@ Un juego inspirado en Pokémon basado en combates por turnos completamente en l�
 <br>
 <br>
 Para jugar será recomendable tener el modulo de pygame instalado en python, se debería instalar automáticamente al ejecutar el archivo principal, en caso contrario usar 'pip install pygame' en la terminal.
+<br>
+<br>
+Parámetros: music_off
 
 # Known Issues
 
@@ -11,7 +14,20 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 # Changelog
 
-<h2>v0.9.0</h2>
+<h2>v0.10.0 Beldum</h2>
+
+<b>Features</b>
+
+- Se ha añadido el parámetro music_off al iniciar mediante una terminal, para ello se empleará "Ruta_archivo/TurnAdventure/turnadventure.py music_off"
+- Optimizaciones parciales y en curso del código.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
+<h2>v0.9.0 Absol</h2>
 
 <b>Features</b>
 

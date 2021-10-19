@@ -1,6 +1,7 @@
 #!/usr/bin/python
 #!/bin/bash
 
+import sys
 import time
 import subprocess
 
@@ -47,26 +48,30 @@ if contenido == "0":
             archivo = open("./requirements.conf", "w")
             archivo.write("1")
             archivo.close()
-else:
-    null = 1
 #-------------------------------------------------------------------------------
 
 Juego = 1
 modo_compatibilidad = 0
-null = 1 #Placeholder de los if-------------------------------------------------
 
+#System Inputs------------------------------------------------------------------
+try:
+    if sys.argv[1] == "music_off":
+        modo_compatibilidad = 1
+except:
+    null = 1
 
 #Comprobación del módulo de pygame----------------------------------------------
-try:
-    mixer.init()
-    mixer.music.load("./music/titulo.mp3")
-    mixer.music.play(-1)
-except:
-    modo_compatibilidad = 1
-    clear()
-    print("No se ha encontrado el modulo de pygame, puedes instalarlo usando: pip install pygame")
-    print("Se iniciará el juego sin música...")
-    time.sleep(3)
+if modo_compatibilidad == 0:
+    try:
+        mixer.init()
+        mixer.music.load("./music/titulo.mp3")
+        mixer.music.play(-1)
+    except:
+        modo_compatibilidad = 1
+        clear()
+        print("No se ha encontrado el modulo de pygame, puedes instalarlo usando: pip install pygame")
+        print("Se iniciará el juego sin música...")
+        time.sleep(3)
 #-------------------------------------------------------------------------------
 
 #Funciones----------------------------------------------------------------------
@@ -75,36 +80,38 @@ def perro(posicion):
     #Stats----------------------------------------------------------------------
     nivel_perro = 1
 
-    randomnumero1=(randrange(50,60))
-
-    global s_vida_min #Para pantalla de stats-----------------------------------
+    randomnumero1=(randrange(50,60)) #Vida--------------------------------------
+    #Para pantalla de stats-----------------------------------------------------
+    global s_vida_min
     s_vida_min = 50
-
+    #---------------------------------------------------------------------------
     bonus_vida = nivel_perro*5
     global vida_perro
     vida_perro = randomnumero1 + bonus_vida
 
-    randomnumero1=(randrange(15,20))
-
-    global s_velocidad_min #Para pantalla de stats------------------------------
+    randomnumero1=(randrange(15,20)) #Velocidad---------------------------------
+    #Para pantalla de stats-----------------------------------------------------
+    global s_velocidad_min
     s_velocidad_min = 15
-
+    #---------------------------------------------------------------------------
     bonus_velocidad = nivel_perro*2
     global velocidad_perro
     velocidad_perro = randomnumero1 + bonus_velocidad
 
-    randomnumero1=(randrange(21,25))
-
-    global s_ataque_min #Para pantalla de stats---------------------------------
+    randomnumero1=(randrange(21,25)) #Ataque------------------------------------
+    #Para pantalla de stats-----------------------------------------------------
+    global s_ataque_min
     s_ataque_min = 21
+    #---------------------------------------------------------------------------
     bonus_ataque = nivel_perro*5
     global ataque_perro
     ataque_perro = randomnumero1 + bonus_ataque
 
-    randomnumero1=(randrange(15,20))
-
-    global s_defensa_min #Para pantalla de stats--------------------------------
+    randomnumero1=(randrange(15,20)) #Defensa-----------------------------------
+    #Para pantalla de stats-----------------------------------------------------
+    global s_defensa_min
     s_defensa_min = 15
+    #---------------------------------------------------------------------------
     bonus_defensa = nivel_perro*3
     global defensa_perro
     defensa_perro = randomnumero1 + bonus_defensa
@@ -125,46 +132,44 @@ def perro(posicion):
             print("   / - \ ")
             print("  /    | ")
             print(" V__) || ")
-        else:
-            null
 
 def buho(posicion):
 
     #Stats----------------------------------------------------------------------
     nivel_buho = 1
 
-    randomnumero1=(randrange(40,50))
-
-    global s_vida_min #Para pantalla de stats-----------------------------------
+    randomnumero1=(randrange(40,50)) #Vida--------------------------------------
+    #Para pantalla de stats-----------------------------------------------------
+    global s_vida_min
     s_vida_min = 40
-
+    #---------------------------------------------------------------------------
     bonus_vida = nivel_buho*3
     global vida_buho
     vida_buho = randomnumero1 + bonus_vida
 
-    randomnumero1=(randrange(20,25))
-
-    global s_velocidad_min #Para pantalla de stats------------------------------
+    randomnumero1=(randrange(20,25)) #Velocidad---------------------------------
+    #Para pantalla de stats-----------------------------------------------------
+    global s_velocidad_min
     s_velocidad_min = 20
-
+    #---------------------------------------------------------------------------
     bonus_velocidad = nivel_buho*3
     global velocidad_buho
     velocidad_buho = randomnumero1 + bonus_velocidad
 
-    randomnumero1=(randrange(18,24))
-
-    global s_ataque_min #Para pantalla de stats---------------------------------
+    randomnumero1=(randrange(18,24)) #Ataque------------------------------------
+    #Para pantalla de stats-----------------------------------------------------
+    global s_ataque_min
     s_ataque_min = 18
-
+    #---------------------------------------------------------------------------
     bonus_ataque = nivel_buho*5
     global ataque_buho
     ataque_buho = randomnumero1 + bonus_ataque
 
-    randomnumero1=(randrange(18,22))
-
-    global s_defensa_min #Para pantalla de stats--------------------------------
+    randomnumero1=(randrange(18,22)) #Defensa-----------------------------------
+    #Para pantalla de stats-----------------------------------------------------
+    global s_defensa_min
     s_defensa_min = 18
-
+    #---------------------------------------------------------------------------
     bonus_defensa = nivel_buho*3
     global defensa_buho
     defensa_buho = randomnumero1 + bonus_defensa
@@ -181,16 +186,12 @@ def buho(posicion):
             print("                                                                ((ovo)) ")
             print("                                                                ():::() ")
             print("                                                                  VVV ")
-        else:
-            null
 
 def Mod_combate():
 
     if modo_compatibilidad == 0:
         mixer.music.load("./music/oak.mp3")
         mixer.music.play(-1)
-    else:
-        null
 #-------------------------------------------------------------------------------
 
     Supervivencia = 1
@@ -268,8 +269,6 @@ def Mod_combate():
             mixer.music.stop()
             mixer.music.load("./music/trainer.mp3")
             mixer.music.play(-1)
-        else:
-            null
 
         combateIniciado = 0
 
@@ -374,8 +373,7 @@ def Mod_combate():
                     mixer.music.stop()
                     mixer.music.load("./music/victory.mp3")
                     mixer.music.play(-1)
-                else:
-                    null
+
                 victorias = victorias + 1
                 print("¡Ha ganado el jugador!",victorias,"victorias!")
                 print()
@@ -386,14 +384,12 @@ def Mod_combate():
                     mixer.music.stop()
                     mixer.music.load("./music/titulo.mp3")
                     mixer.music.play(-1)
-                else:
-                    null
+
             else:
                 if VidaJugador <= 0:
                     if modo_compatibilidad == 0:
                         mixer.music.stop()
-                    else:
-                        null
+
                     print("¡Ha ganado tu enemigo!")
                     print()
                     input("Pulsa cualquier tecla para continuar: ")
@@ -402,8 +398,7 @@ def Mod_combate():
                     if modo_compatibilidad == 0:
                         mixer.music.load("./music/titulo.mp3")
                         mixer.music.play(-1)
-                    else:
-                        null
+
                 else:
                     #i = input("Selecciona movimiento (Ataque (A)): ")
 
@@ -424,15 +419,13 @@ def Mod_combate():
                         if acumuladorVelocidadJugador >= VelocidadEnemigo:
                             jugadorAtaca = jugadorAtaca + 1
                             acumuladorVelocidadJugador = 0
-                        else:
-                            null
+
                     else:
                         acumuladorVelocidadEnemigo = VelocidadEnemigo - VelocidadJugador
                         if acumuladorVelocidadEnemigo >= VelocidadJugador:
                             enemigoAtaca = enemigoAtaca + 1
                             acumuladorVelocidadEnemigo = 0
-                        else:
-                            null
+
                     #---------------------------------------------------------------
 
                     #Turnos---------------------------------------------------------
@@ -484,8 +477,7 @@ def Mod_combate():
                                 print()
                                 print("¡Ataque Crítico!")
                                 print("")
-                            else:
-                                null
+
                             time.sleep(3)
                             jugadorAtaca = jugadorAtaca - 1
                             enemigoAtaca = enemigoAtaca + 1
@@ -562,8 +554,7 @@ def Mod_combate():
                                 if critico == 1:
                                     print()
                                     print("¡Ataque Crítico!")
-                                else:
-                                    null
+
                                 time.sleep(3)
                                 enemigoAtaca = enemigoAtaca - 1
                                 jugadorAtaca = jugadorAtaca + 1
@@ -582,8 +573,6 @@ def Mod_combate():
                                     time.sleep(3)
                                     enemigoAtaca = enemigoAtaca - 1
                                     jugadorAtaca = jugadorAtaca + 1
-                        else:
-                            null
 
 def StatsTotales(posicion):
 
@@ -613,7 +602,7 @@ while Juego == 1:
     clear()
     print("_______________________________________________________________________")
     print()
-    print("              ¡Bienvenido a TurnAdventure! v0.9.0 (Absol)")
+    print("            ¡Bienvenido a TurnAdventure! v0.10.0 (Beldum)")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
