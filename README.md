@@ -11,7 +11,20 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 # Changelog
 
-<h2>v0.9.0</h2>
+<h2>v0.10.0 Beldum</h2>
+
+<b>Features</b>
+
+- Se ha añadido el parámetro music_off al iniciar mediante una terminal, para ello se empleará "Ruta_archivo/TurnAdventure/turnadventure.py music_off"
+- Optimizaciones parciales y en curso del código.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
+<h2>v0.9.0 Absol</h2>
 
 <b>Features</b>
 
