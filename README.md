@@ -14,6 +14,19 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 # Changelog
 
+<h2>v0.12.0 Dratini</h2>
+
+<b>Features</b>
+
+- Se ha mejorado la interfaz de batalla.
+- Se ha añadido un tema al tener puntos de salud bajos.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.11.0 Chatot</h2>
 
 <b>Features</b>
