@@ -65,7 +65,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 <b>Bugs</b>
 
-- Ninguno encontrado.
+- En la pantalla de selección de personaje si no se elige una opción planteada por defecto se usará siempre al perro.
 
 <hr>
 
