@@ -11,6 +11,20 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 # Changelog
 
+<h2>v0.9.0</h2>
+
+<b>Features</b>
+
+- Se ha mejorado el modo de combate random para recuperar el estado de tu personaje en la sesión y recuperar su vida en cada ronda.
+- Mejoras en la interfaz.
+- Optimizaciones parciales y en curso del código.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.8.0</h2>
 
 <b>Features</b>
