@@ -194,8 +194,8 @@ def Mod_combate():
     if modo_compatibilidad == 0:
         hit = mixer.Sound("./music/normalHit.mp3")
         criticalHit = mixer.Sound("./music/criticalHit.mp3")
+        lowhealth = mixer.Sound("./music/lowhealth.mp3")
 
-    if modo_compatibilidad == 0:
         mixer.music.load("./music/oak.mp3")
         mixer.music.play(-1)
 #-------------------------------------------------------------------------------
@@ -286,6 +286,8 @@ def Mod_combate():
 
         while Combate == 1: #Inicio modulo de combate-------------------------------
 
+            pocavida = 0
+
             #Asociar porcentajes con vida Enemigo-----------------------------------
             ochentaporciento = VidaTotalEnemigo*0.8
             sesentaporciento = VidaTotalEnemigo*0.6
@@ -297,16 +299,16 @@ def Mod_combate():
                 VidaEnemigo = 0
             else:
                 if VidaEnemigo <= veinteporciento:
-                    barra1 = "██ "
+                    barra1 = "██▒▒▒▒ "
                 else:
                     if VidaEnemigo <= cuarentaporciento:
-                        barra1 = "███ "
+                        barra1 = "███▒▒▒ "
                     else:
                         if VidaEnemigo <= sesentaporciento:
-                            barra1 = "████ "
+                            barra1 = "████▒▒ "
                         else:
                             if VidaEnemigo <= ochentaporciento:
-                                barra1 = "█████ "
+                                barra1 = "█████▒ "
                             else:
                                 barra1 = "██████"
 
@@ -321,16 +323,23 @@ def Mod_combate():
                     VidaJugador = 0
                 else:
                     if VidaJugador <= veinteporciento:
-                        barra2 = "██ "
+                        barra2 = "██▒▒▒▒ "
+
+                        if pocavida == 0:
+                            mixer.music.stop()
+                            #lowhealth.play(-1)
+                            mixer.music.load("./music/lowhealthBW.mp3")
+                            mixer.music.play(-1)
+                            pocavida = 1
                     else:
                         if VidaJugador <= cuarentaporciento:
-                            barra2 = "███ "
+                            barra2 = "███▒▒▒ "
                         else:
                             if VidaJugador <= sesentaporciento:
-                                barra2 = "████ "
+                                barra2 = "████▒▒ "
                             else:
                                 if VidaJugador <= ochentaporciento:
-                                    barra2 = "█████ "
+                                    barra2 = "█████▒ "
                                 else:
                                     barra2 = "██████"
 
@@ -374,14 +383,17 @@ def Mod_combate():
             else:
                 perro("aliado")
             #Mostrar nombre y barra---------------------------------------------
-            if respuesta == "1": print("        ","BUHO",barra2,VidaJugador)
-            if respuesta != "1": print("         ","PERRO",barra2,VidaJugador)
+            if respuesta == "1": print("        ","BUHO",barra2,VidaJugador,"/",VidaTotalJugador)
+            if respuesta != "1": print("         ","PERRO",barra2,VidaJugador,"/",VidaTotalJugador)
             print("_______________________________________________________________________")
             print()
 
             #¿Ha acabado la partida?
             if VidaEnemigo <= 0:
                 if modo_compatibilidad == 0:
+                    #if pocavida == 1:
+                    #    lowhealth.stop()
+
                     mixer.music.stop()
                     mixer.music.load("./music/victory.mp3")
                     mixer.music.play(-1)
@@ -392,6 +404,8 @@ def Mod_combate():
                 input("Pulsa cualquier tecla para continuar: ")
                 Combate = 0
                 continuarPartida = 1
+
+                #Es esto necesario?---------------------------------------------
                 if modo_compatibilidad == 0:
                     mixer.music.stop()
                     mixer.music.load("./music/titulo.mp3")
@@ -634,7 +648,7 @@ while Juego == 1:
     clear()
     print("_______________________________________________________________________")
     print()
-    print("             ¡Bienvenido a TurnAdventure! v0.11.0 (Chatot)")
+    print("             ¡Bienvenido a TurnAdventure! v0.12.0 (Dratini)")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
