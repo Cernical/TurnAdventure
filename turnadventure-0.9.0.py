@@ -195,49 +195,54 @@ def Mod_combate():
 
     Supervivencia = 1
     victorias = 0
+    continuarPartida = 0
 
     while Supervivencia == 1:
 
-        #Asignación de parámetros jugador y enemigo---------------------------------
+        #Asignación de parámetros jugador y enemigo-----------------------------
         asignacion = 1
 
-        while asignacion == 1:
+        #Comprobación transcurso partida y restauración de vida-----------------
+        if continuarPartida == 0:
+            while asignacion == 1:
 
-            print()
-            #Selección personajes-------------------------------------------------------
-            clear()
-            print()
-            buho("aliado")
-            print()
-            print("(1)")
-            print()
-            perro("aliado")
-            print()
-            print("(2)")
-            print()
-            respuesta = input("¿Qué personaje quieres seleccionar? (1,2): ")
+                print()
+                #Selección personajes-------------------------------------------
+                clear()
+                print()
+                buho("aliado")
+                print()
+                print("(1)")
+                print()
+                perro("aliado")
+                print()
+                print("(2)")
+                print()
+                respuesta = input("¿Qué personaje quieres seleccionar? (1,2): ")
 
-            if respuesta == "1":
-                buho(0)
-                VidaJugador = vida_buho
-                VidaTotalJugador = VidaJugador #Asignación para calculo de barra.v------
-                VelocidadJugador = velocidad_buho
-                AtaqueJugador = ataque_buho
-                DefensaJugador = defensa_buho
-                asignacion = 0
-            else:
-                if respuesta == "2":
-                    perro(0)
-                    VidaJugador = vida_perro
+                if respuesta == "1":
+                    buho(0)
+                    VidaJugador = vida_buho
                     VidaTotalJugador = VidaJugador #Asignación para calculo de barra.v------
-                    VelocidadJugador = velocidad_perro
-                    AtaqueJugador = ataque_perro
-                    DefensaJugador = defensa_perro
+                    VelocidadJugador = velocidad_buho
+                    AtaqueJugador = ataque_buho
+                    DefensaJugador = defensa_buho
                     asignacion = 0
                 else:
-                    print()
-                    print("No has seleccionado un personaje correcto")
-                    time.sleep(3)
+                    if respuesta == "2":
+                        perro(0)
+                        VidaJugador = vida_perro
+                        VidaTotalJugador = VidaJugador #Asignación para calculo de barra.v------
+                        VelocidadJugador = velocidad_perro
+                        AtaqueJugador = ataque_perro
+                        DefensaJugador = defensa_perro
+                        asignacion = 0
+                    else:
+                        print()
+                        print("No has seleccionado un personaje correcto")
+                        time.sleep(3)
+        else:
+            VidaJugador = VidaTotalJugador #restauración de vida----------------
 
         respuesta_enemigo=(randrange(1,3))
         if respuesta_enemigo == 1:
@@ -265,6 +270,8 @@ def Mod_combate():
             mixer.music.play(-1)
         else:
             null
+
+        combateIniciado = 0
 
         while Combate == 1: #Inicio modulo de combate-------------------------------
 
@@ -317,6 +324,20 @@ def Mod_combate():
                                     barra2 = "██████"
 
             #Campo de batalla---------------------------------------------------
+            if combateIniciado == 0:
+                #Mensaje bienvenida-------------------------------------------------
+                clear()
+                if respuesta_enemigo == 1:
+                    print("¡Te vas a enfrentar a BUHO!")
+                    print()
+                    time.sleep(3)
+                    combateIniciado = 1
+                else:
+                    if respuesta_enemigo != 1:
+                        print("¡Te vas a enfrentar a PERRO!")
+                        print()
+                        time.sleep(3)
+                        combateIniciado = 1
             clear()
             print("_______________________________________________________________________")
             print("")
@@ -360,6 +381,7 @@ def Mod_combate():
                 print()
                 input("Pulsa cualquier tecla para continuar: ")
                 Combate = 0
+                continuarPartida = 1
                 if modo_compatibilidad == 0:
                     mixer.music.stop()
                     mixer.music.load("./music/titulo.mp3")
@@ -587,10 +609,11 @@ def StatsTotales(posicion):
 #Menú---------------------------------------------------------------------------
 while Juego == 1:
 
+    #Regla-01234567890123456789012345678901234567890123456789012345678901234567890
     clear()
     print("_______________________________________________________________________")
     print()
-    print("                  ¡Bienvenido a TurnAdventure! v0.8.0")
+    print("              ¡Bienvenido a TurnAdventure! v0.9.0 (Absol)")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
