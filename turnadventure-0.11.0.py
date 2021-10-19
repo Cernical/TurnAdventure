@@ -1,6 +1,7 @@
 #!/usr/bin/python
 #!/bin/bash
 
+import pygame
 import sys
 import time
 import subprocess
@@ -189,6 +190,11 @@ def buho(posicion):
 
 def Mod_combate():
 
+    #Carga efectos sonido-------------------------------------------------------
+    if modo_compatibilidad == 0:
+        hit = mixer.Sound("./music/normalHit.mp3")
+        criticalHit = mixer.Sound("./music/criticalHit.mp3")
+
     if modo_compatibilidad == 0:
         mixer.music.load("./music/oak.mp3")
         mixer.music.play(-1)
@@ -266,9 +272,15 @@ def Mod_combate():
         calculoVelocidad = 1
 
         if modo_compatibilidad == 0:
-            mixer.music.stop()
-            mixer.music.load("./music/trainer.mp3")
-            mixer.music.play(-1)
+            musica = (randrange(1,3))
+            if musica == 1:
+                mixer.music.stop()
+                mixer.music.load("./music/trainer.mp3")
+                mixer.music.play(-1)
+            else:
+                mixer.music.stop()
+                mixer.music.load("./music/wild.mp3")
+                mixer.music.play(-1)
 
         combateIniciado = 0
 
@@ -469,8 +481,18 @@ def Mod_combate():
                                             critico = 1
                                         DañoRealizado = DañoRealizado + DañoRandom
 
-                            DañoRealizado = int(DañoRealizado) #Pueden aparecer FP--
+                            DañoRealizado = int(DañoRealizado) #Pueden aparecer FP
                             VidaEnemigo = VidaEnemigo - DañoRealizado
+
+                            #hit sound------------------------------------------
+                            if modo_compatibilidad == 0:
+                                if critico == 0:
+                                    #mixer.music.stop()
+                                    hit.play()
+                                else:
+                                    #mixer.music.stop()
+                                    criticalHit.play()
+
                             print("")
                             print("Has ocasionado",DañoRealizado,"de daño")
                             if critico == 1:
@@ -550,6 +572,15 @@ def Mod_combate():
 
                                 DañoRealizado = int(DañoRealizado) #Pueden aparecer FP--
                                 VidaJugador = VidaJugador - DañoRealizado
+
+                                if modo_compatibilidad == 0:
+                                    if critico == 0:
+                                        #mixer.music.stop()
+                                        hit.play()
+                                    else:
+                                        #mixer.music.stop()
+                                        criticalHit.play()
+
                                 print("El enemigo ha causado",DañoRealizado,"de daño")
                                 if critico == 1:
                                     print()
@@ -578,6 +609,7 @@ def StatsTotales(posicion):
 
     clear()
 
+    print()
     buho(posicion)
     print()
     print("Vida:",s_vida_min)
@@ -602,7 +634,7 @@ while Juego == 1:
     clear()
     print("_______________________________________________________________________")
     print()
-    print("            ¡Bienvenido a TurnAdventure! v0.10.0 (Beldum)")
+    print("             ¡Bienvenido a TurnAdventure! v0.11.0 (Chatot)")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
