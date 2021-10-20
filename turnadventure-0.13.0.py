@@ -283,65 +283,72 @@ def Mod_combate():
                 mixer.music.play(-1)
 
         combateIniciado = 0
+        pocavida = 0
 
         while Combate == 1: #Inicio modulo de combate-------------------------------
 
-            pocavida = 0
-
             #Asociar porcentajes con vida Enemigo-----------------------------------
             ochentaporciento = VidaTotalEnemigo*0.8
-            sesentaporciento = VidaTotalEnemigo*0.6
-            cuarentaporciento = VidaTotalEnemigo*0.4
-            veinteporciento = VidaTotalEnemigo*0.2
+            sesentaporciento = VidaTotalEnemigo*0.65
+            cincuentaporciento = VidaTotalEnemigo*0.5
+            treintaporciento = VidaTotalEnemigo*0.35
+            diezporciento = VidaTotalEnemigo*0.15
 
             if VidaEnemigo <= 0:
-                barra1 = ""
+                barra1 = "|      |"
                 VidaEnemigo = 0
             else:
-                if VidaEnemigo <= veinteporciento:
-                    barra1 = "██▒▒▒▒ "
+                if VidaEnemigo <= diezporciento:
+                    barra1 = "|█     |"
                 else:
-                    if VidaEnemigo <= cuarentaporciento:
-                        barra1 = "███▒▒▒ "
+                    if VidaEnemigo <= treintaporciento:
+                        barra1 = "|██    |"
                     else:
-                        if VidaEnemigo <= sesentaporciento:
-                            barra1 = "████▒▒ "
+                        if VidaEnemigo <= cincuentaporciento:
+                            barra1 = "|███   |"
                         else:
-                            if VidaEnemigo <= ochentaporciento:
-                                barra1 = "█████▒ "
+                            if VidaEnemigo <= sesentaporciento:
+                                barra1 = "|████  |"
                             else:
-                                barra1 = "██████"
+                                if VidaEnemigo <= ochentaporciento:
+                                    barra1 = "|█████ |"
+                                else:
+                                    barra1 = "|██████|"
 
                 #Asociar porcentajes con vida Jugador-------------------------------
                 ochentaporciento = VidaTotalJugador*0.8
-                sesentaporciento = VidaTotalJugador*0.6
-                cuarentaporciento = VidaTotalJugador*0.4
-                veinteporciento = VidaTotalJugador*0.2
+                sesentaporciento = VidaTotalJugador*0.65
+                cincuentaporciento = VidaTotalJugador*0.5
+                treintaporciento = VidaTotalJugador*0.35
+                diezporciento = VidaTotalJugador*0.15
 
                 if VidaJugador <= 0:
-                    barra2 = ""
+                    barra2 = "|      |"
                     VidaJugador = 0
                 else:
-                    if VidaJugador <= veinteporciento:
-                        barra2 = "██▒▒▒▒ "
-
-                        if pocavida == 0:
-                            mixer.music.stop()
-                            #lowhealth.play(-1)
-                            mixer.music.load("./music/lowhealthBW.mp3")
-                            mixer.music.play(-1)
-                            pocavida = 1
+                    if VidaJugador <= diezporciento:
+                        barra2 = "|█     |"
                     else:
-                        if VidaJugador <= cuarentaporciento:
-                            barra2 = "███▒▒▒ "
+                        if VidaJugador <= treintaporciento:
+                            barra2 = "|██    |"
+
+                            if pocavida == 0:
+                                mixer.music.stop()
+                                #lowhealth.play(-1)
+                                mixer.music.load("./music/lowhealthBW.mp3")
+                                mixer.music.play(-1)
+                                pocavida = 1
                         else:
-                            if VidaJugador <= sesentaporciento:
-                                barra2 = "████▒▒ "
+                            if VidaJugador <= cincuentaporciento:
+                                barra2 = "|███   |"
                             else:
-                                if VidaJugador <= ochentaporciento:
-                                    barra2 = "█████▒ "
+                                if VidaJugador <= sesentaporciento:
+                                    barra2 = "|████  |"
                                 else:
-                                    barra2 = "██████"
+                                    if VidaJugador <= ochentaporciento:
+                                        barra2 = "|█████ |"
+                                    else:
+                                        barra2 = "|██████|"
 
             #Campo de batalla---------------------------------------------------
             if combateIniciado == 0:
@@ -362,8 +369,8 @@ def Mod_combate():
             print("_______________________________________________________________________")
             print("")
             #Mostrar nombre y barra---------------------------------------------
-            if respuesta_enemigo == 1: print("                                                   ","BUHO",barra1)
-            if respuesta_enemigo != 1: print("                                                ","PERRO",barra1)
+            if respuesta_enemigo == 1: print("                                                 ","BUHO",barra1)
+            if respuesta_enemigo != 1: print("                                              ","PERRO",barra1)
             #Mostrar personajes-------------------------------------------------
             if respuesta_enemigo == 1:
                 buho("enemigo")
@@ -648,7 +655,7 @@ while Juego == 1:
     clear()
     print("_______________________________________________________________________")
     print()
-    print("             ¡Bienvenido a TurnAdventure! v0.12.0 (Dratini)")
+    print("              ¡Bienvenido a TurnAdventure! v0.13.0 (Espurr)")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")

@@ -14,6 +14,19 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 # Changelog
 
+<h2>v0.13.0 Espurr</h2>
+
+<b>Features</b>
+
+- Se ha arreglado un error que volvía a iniciar el tema de poca vida si volvías a recibir un golpe y sobrevives.
+- Se ha corregido y mejorado la gestión de salud y su interfaz en batalla.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.12.0 Dratini</h2>
 
 <b>Features</b>
@@ -23,7 +36,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 <b>Bugs</b>
 
-- Por encontrar.
+- Al tener pocos puntos de salud y sonar el tema correspondiente, volverá a iniciarse desde cero si se sobrevive a un golpe.
 
 <hr>
 
