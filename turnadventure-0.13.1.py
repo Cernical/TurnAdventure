@@ -412,11 +412,11 @@ def Mod_combate():
                 Combate = 0
                 continuarPartida = 1
 
-                #Es esto necesario?---------------------------------------------
-                if modo_compatibilidad == 0:
-                    mixer.music.stop()
-                    mixer.music.load("./music/titulo.mp3")
-                    mixer.music.play(-1)
+                #En caso de salir al ganar--------------------------------------
+                #if modo_compatibilidad == 0:
+                #    mixer.music.stop()
+                #    mixer.music.load("./music/titulo.mp3")
+                #    mixer.music.play(-1)
 
             else:
                 if VidaJugador <= 0:
@@ -655,7 +655,7 @@ while Juego == 1:
     clear()
     print("_______________________________________________________________________")
     print()
-    print("              ¡Bienvenido a TurnAdventure! v0.13.0 (Espurr)")
+    print("              ¡Bienvenido a TurnAdventure! v0.13.1 (Espurr)")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
