@@ -1,20 +1,20 @@
 #!/usr/bin/python
 #!/bin/bash
 
-import pygame
-import sys
-import time
-import subprocess
+import sys #Necesario para los argumentos en CMD
+import time #Necesario para el tiempo de espera
+import subprocess #Necesario para usar el sistema y sus funciones
+from random import randrange #Necesario para el generador aleatorio
+clear = lambda: subprocess.call('cls||clear', shell=True) #Llamada al sistema
 
 #Comprobación del modulo de pygame----------------------------------------------
 try:
+    #Necesario para la música---------------------------------------------------
     from pygame.locals import *
     from pygame import mixer
+    import pygame
 except:
     modo_compatibilidad = 1 #Placeholder del try--------------------------------
-
-from random import randrange
-clear = lambda: subprocess.call('cls||clear', shell=True)
 #-------------------------------------------------------------------------------
 
 #Creacion Archivo Requerimientos (Para comprobar si se realizó el setup)--------
@@ -655,7 +655,7 @@ while Juego == 1:
     clear()
     print("_______________________________________________________________________")
     print()
-    print("              ¡Bienvenido a TurnAdventure! v0.13.1 (Espurr)")
+    print("              ¡Bienvenido a TurnAdventure! v0.13.2 (Espurr)")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
