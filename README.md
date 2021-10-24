@@ -14,6 +14,19 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 # Changelog
 
+<h2>v0.13.2 Espurr</h2>
+
+<b>Features</b>
+
+- Optimizaciones del código.
+- Arreglado un error que no permitía ejecutar el juego sin la librería de Pygame.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.13.1 Espurr</h2>
 
 <b>Features</b>
@@ -22,7 +35,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 <b>Bugs</b>
 
-- Por encontrar.
+- No se puede ejecutar el juego sin la librería de Pygame.
 
 <hr>
 
@@ -35,7 +48,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 <b>Bugs</b>
 
-- Por encontrar.
+- No se puede ejecutar el juego sin la librería de Pygame
 
 <hr>
 
@@ -49,6 +62,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 <b>Bugs</b>
 
 - Al tener pocos puntos de salud y sonar el tema correspondiente, volverá a iniciarse desde cero si se sobrevive a un golpe.
+- No se puede ejecutar el juego sin la librería de Pygame
 
 <hr>
 
@@ -61,7 +75,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 <b>Bugs</b>
 
-- Por encontrar.
+- No se puede ejecutar el juego sin la librería de Pygame
 
 <hr>
 
