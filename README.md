@@ -14,6 +14,19 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 # Changelog
 
+<h2>v0.13.2 Espurr</h2>
+
+<b>Features</b>
+
+- Optimizaciones del código.
+- Arreglado un error que no permitía ejecutar el juego sin la librería de pygame.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.13.1 Espurr</h2>
 
 <b>Features</b>
