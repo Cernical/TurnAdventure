@@ -14,6 +14,30 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 # Changelog
 
+<h2>v0.14.1 Farfetch'd</h2>
+
+<b>Features</b>
+
+- Arreglado un bug el cual al perder demasiada vida en un turno no empezará el tema correspondiente.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
+<h2>v0.14.0 Farfetch'd</h2>
+
+<b>Features</b>
+
+- Añadido un tema y animación de opening
+
+<b>Bugs</b>
+
+- Si se recibe demasiado daño en un solo turno no sonará el tema de low health.
+
+<hr>
+
 <h2>v0.13.2 Espurr</h2>
 
 <b>Features</b>
@@ -23,7 +47,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 <b>Bugs</b>
 
-- Por encontrar.
+- Si se recibe demasiado daño en un solo turno no sonará el tema de low health.
 
 <hr>
 
@@ -36,6 +60,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 <b>Bugs</b>
 
 - No se puede ejecutar el juego sin la librería de Pygame.
+- Si se recibe demasiado daño en un solo turno no sonará el tema de low health.
 
 <hr>
 
@@ -49,6 +74,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 <b>Bugs</b>
 
 - No se puede ejecutar el juego sin la librería de Pygame
+- Si se recibe demasiado daño en un solo turno no sonará el tema de low health.
 
 <hr>
 
