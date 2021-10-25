@@ -45,10 +45,13 @@ if contenido == "0":
             archivo.write("1")
             archivo.close()
         except:
-            subprocess.call("./requirements/windows.bat")
-            archivo = open("./requirements.conf", "w")
-            archivo.write("1")
-            archivo.close()
+            try:
+                subprocess.call("./requirements/windows.bat")
+                archivo = open("./requirements.conf", "w")
+                archivo.write("1")
+                archivo.close()
+            except:
+                null = 1
 #-------------------------------------------------------------------------------
 
 Juego = 1
@@ -872,7 +875,7 @@ while Juego == 1:
     clear()
     print("_______________________________________________________________________")
     print()
-    print("           ¡Bienvenido a TurnAdventure! v0.14.1 (Farfetch'd)")
+    print("           ¡Bienvenido a TurnAdventure! v0.14.2 (Farfetch'd)")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
