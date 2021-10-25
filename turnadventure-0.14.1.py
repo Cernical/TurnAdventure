@@ -328,6 +328,13 @@ def Mod_combate():
                 else:
                     if VidaJugador <= diezporciento:
                         barra2 = "|█     |"
+
+                        if pocavida == 0:
+                            mixer.music.stop()
+                            #lowhealth.play(-1)
+                            mixer.music.load("./music/lowhealthBW.mp3")
+                            mixer.music.play(-1)
+                            pocavida = 1
                     else:
                         if VidaJugador <= treintaporciento:
                             barra2 = "|██    |"
@@ -865,7 +872,7 @@ while Juego == 1:
     clear()
     print("_______________________________________________________________________")
     print()
-    print("           ¡Bienvenido a TurnAdventure! v0.14.0 (Farfetch'd)")
+    print("           ¡Bienvenido a TurnAdventure! v0.14.1 (Farfetch'd)")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
