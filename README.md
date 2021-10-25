@@ -14,6 +14,18 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 # Changelog
 
+<h2>v0.14.2 Farfetch'd</h2>
+
+<b>Features</b>
+
+- Mejorada la gestión de errores en vista a poder usarse en Android.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.14.1 Farfetch'd</h2>
 
 <b>Features</b>
