@@ -1,5 +1,4 @@
 #!/usr/bin/python
-#!/bin/bash
 
 import sys #Necesario para los argumentos en CMD
 import time #Necesario para el tiempo de espera
@@ -81,6 +80,9 @@ if modo_compatibilidad == 0:
 #Funciones----------------------------------------------------------------------
 def perro(posicion):
 
+    global Nombre_Identidad
+    Nombre_Identidad = "PERRO"
+
     #Stats----------------------------------------------------------------------
     nivel_perro = 1
 
@@ -138,6 +140,9 @@ def perro(posicion):
             print(" V__) || ")
 
 def buho(posicion):
+
+    global Nombre_Identidad
+    Nombre_Identidad = "BUHO"
 
     #Stats----------------------------------------------------------------------
     nivel_buho = 1
@@ -251,6 +256,8 @@ def Mod_combate():
                         print()
                         print("No has seleccionado un personaje correcto")
                         time.sleep(3)
+
+                Player = Nombre_Identidad #Para obteneter el nombre del personaje
         else:
             VidaJugador = VidaTotalJugador #restauración de vida----------------
 
@@ -269,6 +276,8 @@ def Mod_combate():
             VelocidadEnemigo = velocidad_perro
             AtaqueEnemigo = ataque_perro
             DefensaEnemigo = defensa_perro
+
+        NPC = Nombre_Identidad #Para obteneter el nombre del personaje
 
         #Inicio del combate---------------------------------------------------------
         Combate = 1
@@ -362,19 +371,14 @@ def Mod_combate():
 
             #Campo de batalla---------------------------------------------------
             if combateIniciado == 0:
+                
                 #Mensaje bienvenida-------------------------------------------------
                 clear()
-                if respuesta_enemigo == 1:
-                    print("¡Te vas a enfrentar a BUHO!")
-                    print()
-                    time.sleep(3)
-                    combateIniciado = 1
-                else:
-                    if respuesta_enemigo != 1:
-                        print("¡Te vas a enfrentar a PERRO!")
-                        print()
-                        time.sleep(3)
-                        combateIniciado = 1
+                print("¡Te vas a enfrentar a",NPC+"!")
+                print()
+                time.sleep(3)
+                combateIniciado = 1
+
             clear()
             print("_______________________________________________________________________")
             print("")
@@ -875,7 +879,7 @@ while Juego == 1:
     clear()
     print("_______________________________________________________________________")
     print()
-    print("           ¡Bienvenido a TurnAdventure! v0.14.2 (Farfetch'd)")
+    print("           ¡Bienvenido a TurnAdventure! v0.14.3 (Farfetch'd)")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
