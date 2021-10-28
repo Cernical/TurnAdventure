@@ -78,6 +78,79 @@ if modo_compatibilidad == 0:
 #-------------------------------------------------------------------------------
 
 #Funciones----------------------------------------------------------------------
+def battle_animation():
+
+    animacion = 0
+    turno_anmiacion_enemigo = 1
+    turno_anmiacion_aliado = 0
+    a = 0
+    b = 0
+    mensaje = 0
+    mensaje2 = 0
+
+    while animacion < 3:
+
+        clear()
+        print("_______________________________________________________________________")
+        print("")
+        print()
+        #Mostrar personajes-------------------------------------------------
+        if turno_anmiacion_enemigo == 1:
+
+            if respuesta_enemigo == 1:
+                buho("enemigo")
+                if modo_compatibilidad == 0:
+                    if a == 0:
+                        hoothoot.play()
+                        a = 1
+            else:
+                perro("enemigo")
+                if modo_compatibilidad == 0:
+                    if a == 0:
+                        growlithe.play()
+                        a = 1
+
+        print("         /\ ")
+        print("                              /\  ")
+        print("                                               /\  ")
+        print("")
+        print("                /\  ")
+        print("")
+        print("                                  /\                       /\ ")
+        print("")
+        #Mostrar personajes-----------------------------------------------------
+        if turno_anmiacion_aliado == 1:
+
+            if respuesta == "1":
+                buho("aliado")
+                if modo_compatibilidad == 0:
+                    if b == 0:
+                        hoothoot.play()
+                        b = 1
+            else:
+                perro("aliado")
+                if modo_compatibilidad == 0:
+                    if b == 0:
+                        growlithe.play()
+                        b = 1
+
+        print()
+        print("_______________________________________________________________________")
+        animacion = animacion + 1
+
+        #Gestion de turnos del bucle--------------------------------------------
+        if mensaje == 1:
+            print()
+            print("Vamos",Player+"!")
+            mensaje = 0
+            mensaje2 = 1
+            turno_anmiacion_aliado = 1
+
+        if mensaje2 == 0:
+            mensaje = 1
+
+        time.sleep(2)
+
 def perro(posicion):
 
     global Nombre_Identidad
@@ -139,6 +212,10 @@ def perro(posicion):
             print("  /    | ")
             print(" V__) || ")
 
+    #Cry------------------------------------------------------------------------
+    global growlithe
+    growlithe = mixer.Sound("./music/growlithe.mp3")
+
 def buho(posicion):
 
     global Nombre_Identidad
@@ -196,6 +273,10 @@ def buho(posicion):
             print("                                                                ():::() ")
             print("                                                                  VVV ")
 
+    #Cry------------------------------------------------------------------------
+    global hoothoot
+    hoothoot = mixer.Sound("./music/hoothoot.mp3")
+
 def Mod_combate():
 
     #Carga efectos sonido-------------------------------------------------------
@@ -233,6 +314,7 @@ def Mod_combate():
                 print()
                 print("(2)")
                 print()
+                global respuesta
                 respuesta = input("¿Qué personaje quieres seleccionar? (1,2): ")
 
                 if respuesta == "1":
@@ -257,10 +339,12 @@ def Mod_combate():
                         print("No has seleccionado un personaje correcto")
                         time.sleep(3)
 
+                global Player
                 Player = Nombre_Identidad #Para obteneter el nombre del personaje
         else:
             VidaJugador = VidaTotalJugador #restauración de vida----------------
 
+        global respuesta_enemigo
         respuesta_enemigo=(randrange(1,3))
         if respuesta_enemigo == 1:
             buho(0)
@@ -296,6 +380,7 @@ def Mod_combate():
 
         combateIniciado = 0
         pocavida = 0
+        animacion_combate = 1
 
         while Combate == 1: #Inicio modulo de combate-------------------------------
 
@@ -371,13 +456,19 @@ def Mod_combate():
 
             #Campo de batalla---------------------------------------------------
             if combateIniciado == 0:
-                
+
                 #Mensaje bienvenida-------------------------------------------------
                 clear()
                 print("¡Te vas a enfrentar a",NPC+"!")
                 print()
                 time.sleep(3)
                 combateIniciado = 1
+
+            #Animacion en combate-----------------------------------------------
+            if animacion_combate == 1:
+
+                battle_animation()
+                animacion_combate = 0
 
             clear()
             print("_______________________________________________________________________")
@@ -879,7 +970,7 @@ while Juego == 1:
     clear()
     print("_______________________________________________________________________")
     print()
-    print("           ¡Bienvenido a TurnAdventure! v0.14.3 (Farfetch'd)")
+    print("           ¡Bienvenido a TurnAdventure! v0.15.0 (Gardevoir)")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
