@@ -14,6 +14,18 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 # Changelog
 
+<h2>v0.15.0 Gardevoir</h2>
+
+<b>Features</b>
+
+- Se ha añadido una presentación al combate con los sonidos de cada personaje.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.14.3 Farfetch'd</h2>
 
 <b>Features</b>
