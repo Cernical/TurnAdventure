@@ -14,6 +14,20 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 # Changelog
 
+<h2>v0.15.1 Gardevoir</h2>
+
+<b>Features</b>
+
+- Se ha añadido la opción de salirse en el modo supervivencia.
+- Se ha arreglado un fallo de compatibilidad para usuarios sin Pygame.
+- Mejoras en la interfaz
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.15.0 Gardevoir</h2>
 
 <b>Features</b>
@@ -22,7 +36,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 <b>Bugs</b>
 
-- Por encontrar.
+- No se podrá entablar un combate sin la librería de Pygame.
 
 <hr>
 
@@ -34,7 +48,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 <b>Bugs</b>
 
-- Por encontrar.
+- Error al tener poca vida si no se tiene la librería de Pygame.
 
 <hr>
 
@@ -46,7 +60,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 <b>Bugs</b>
 
-- Por encontrar.
+- Error al tener poca vida si no se tiene la librería de Pygame.
 
 <hr>
 
@@ -58,7 +72,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 <b>Bugs</b>
 
-- Por encontrar.
+- Error al tener poca vida si no se tiene la librería de Pygame.
 
 <hr>
 
@@ -71,6 +85,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 <b>Bugs</b>
 
 - Si se recibe demasiado daño en un solo turno no sonará el tema de low health.
+- Error al tener poca vida si no se tiene la librería de Pygame.
 
 <hr>
 
@@ -84,6 +99,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 <b>Bugs</b>
 
 - Si se recibe demasiado daño en un solo turno no sonará el tema de low health.
+- Error al tener poca vida si no se tiene la librería de Pygame.
 
 <hr>
 
@@ -97,6 +113,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 - No se puede ejecutar el juego sin la librería de Pygame.
 - Si se recibe demasiado daño en un solo turno no sonará el tema de low health.
+- Error al tener poca vida si no se tiene la librería de Pygame.
 
 <hr>
 
@@ -111,6 +128,7 @@ Failed loading libmpg123-0.dll: Se debe buscar y copiar el archivo 'libmpg123-0.
 
 - No se puede ejecutar el juego sin la librería de Pygame
 - Si se recibe demasiado daño en un solo turno no sonará el tema de low health.
+- Error al tener poca vida si no se tiene la librería de Pygame.
 
 <hr>
 
