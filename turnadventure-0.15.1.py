@@ -60,6 +60,9 @@ modo_compatibilidad = 0
 try:
     if sys.argv[1] == "music_off":
         modo_compatibilidad = 1
+        clear()
+        print("Se iniciará el juego sin música...")
+        time.sleep(3)
 except:
     null = 1
 
@@ -213,8 +216,10 @@ def perro(posicion):
             print(" V__) || ")
 
     #Cry------------------------------------------------------------------------
-    global growlithe
-    growlithe = mixer.Sound("./music/growlithe.mp3")
+    if modo_compatibilidad == 0:
+
+        global growlithe
+        growlithe = mixer.Sound("./music/growlithe.mp3")
 
 def buho(posicion):
 
@@ -274,8 +279,10 @@ def buho(posicion):
             print("                                                                  VVV ")
 
     #Cry------------------------------------------------------------------------
-    global hoothoot
-    hoothoot = mixer.Sound("./music/hoothoot.mp3")
+    if modo_compatibilidad == 0:
+
+        global hoothoot
+        hoothoot = mixer.Sound("./music/hoothoot.mp3")
 
 def Mod_combate():
 
@@ -427,21 +434,29 @@ def Mod_combate():
                         barra2 = "|█     |"
 
                         if pocavida == 0:
-                            mixer.music.stop()
-                            #lowhealth.play(-1)
-                            mixer.music.load("./music/lowhealthBW.mp3")
-                            mixer.music.play(-1)
+
+                            if modo_compatibilidad == 0:
+                                mixer.music.stop()
+                                #lowhealth.play(-1)
+                                mixer.music.load("./music/lowhealthBW.mp3")
+                                mixer.music.play(-1)
+
                             pocavida = 1
+
                     else:
                         if VidaJugador <= treintaporciento:
                             barra2 = "|██    |"
 
                             if pocavida == 0:
-                                mixer.music.stop()
-                                #lowhealth.play(-1)
-                                mixer.music.load("./music/lowhealthBW.mp3")
-                                mixer.music.play(-1)
+
+                                if modo_compatibilidad == 0:
+                                    mixer.music.stop()
+                                    #lowhealth.play(-1)
+                                    mixer.music.load("./music/lowhealthBW.mp3")
+                                    mixer.music.play(-1)
+
                                 pocavida = 1
+
                         else:
                             if VidaJugador <= cincuentaporciento:
                                 barra2 = "|███   |"
@@ -515,13 +530,18 @@ def Mod_combate():
                 print()
                 input("Pulsa cualquier tecla para continuar: ")
                 Combate = 0
-                continuarPartida = 1
+                print()
+                saveAnswer = input("¿Deseas salir de la partida? (s/N): ")
+                if saveAnswer == "s" or saveAnswer == "S":
 
-                #En caso de salir al ganar--------------------------------------
-                #if modo_compatibilidad == 0:
-                #    mixer.music.stop()
-                #    mixer.music.load("./music/titulo.mp3")
-                #    mixer.music.play(-1)
+                    Supervivencia = 0
+
+                    if modo_compatibilidad == 0:
+                        mixer.music.stop()
+                        mixer.music.load("./music/titulo.mp3")
+                        mixer.music.play(-1)
+                else:
+                    continuarPartida = 1
 
             else:
                 if VidaJugador <= 0:
@@ -970,7 +990,7 @@ while Juego == 1:
     clear()
     print("_______________________________________________________________________")
     print()
-    print("           ¡Bienvenido a TurnAdventure! v0.15.0 (Gardevoir)")
+    print("           ¡Bienvenido a TurnAdventure! v0.15.1 (Gardevoir)")
     print("_______________________________________________________________________")
     print()
     print("- Modo Random (1)")
