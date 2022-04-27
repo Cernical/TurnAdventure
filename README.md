@@ -7,8 +7,6 @@ Un juego inspirado en Pokémon basado en combates por turnos completamente en l�
     <img src="https://user-images.githubusercontent.com/84983282/165519872-a8c584ad-e0d4-4fa9-a4d4-594b72ba57e7.png">
 </p>
 
-![Screenshot_20220427_143547](https://user-images.githubusercontent.com/84983282/165519872-a8c584ad-e0d4-4fa9-a4d4-594b72ba57e7.png)
-
 <br>
 Para jugar será recomendable tener el modulo de pygame instalado en python, se debería instalar automáticamente al ejecutar el archivo principal, en caso contrario usar 'pip install pygame' en la terminal.
 <br>
