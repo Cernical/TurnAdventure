@@ -3,7 +3,6 @@
 Un juego inspirado en Pokémon basado en combates por turnos completamente en línea de comandos.
 <br>
 
-![Screenshot_20220427_143440](https://user-images.githubusercontent.com/84983282/165519402-2bdcbe93-e140-4ec1-9976-28e4beb6dff2.png)
 ![Screenshot_20220427_143547](https://user-images.githubusercontent.com/84983282/165519872-a8c584ad-e0d4-4fa9-a4d4-594b72ba57e7.png)
 
 <br>
